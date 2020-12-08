@@ -1,38 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  perspective: 2px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+section {
+  position: relative;
+  height: 30vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  text-shadow: 0 0 5px #000;
 }
 
-.App-link {
-  color: #61dafb;
+.parallax::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-size: 100%;
+  transform: translateZ(-1px) scale(1.5);
+  z-index: -1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.stationary {
+  background: gray;
+}
+
+.bg-img-1,
+.bg-img-2,
+.bg-img-3 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bg-img-1 {
+  background-image: url("https://raw.githubusercontent.com/pullmana8/Louisiana-Clean-Air/master/assets/img/aera_water_75.jpg");
+  min-height: 100%;
+}
+
+.bg-img-2 {
+  background-image: url("https://raw.githubusercontent.com/pullmana8/Louisiana-Clean-Air/master/assets/img/est_front_white.jpg");
+  min-height: 95%;
+  max-height: 100%;
+  height: auto;
+}
+
+.bg-img-3 {
+  background-image: url("https://raw.githubusercontent.com/pullmana8/Louisiana-Clean-Air/master/assets/img/est_ventus_75.jpg");
+  min-height: 95%;
+  height: auto;
 }

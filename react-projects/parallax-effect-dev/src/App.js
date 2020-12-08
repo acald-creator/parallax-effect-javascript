@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import * as React from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [offset, setOffset] = useState(0)
+  useEffect(() => {
+    function handleScroll() {
+      setOffset(window.pageYOffset)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <main className="wrapper">
+        <section className="parallax bg-img-1">
+          <h1>First Section</h1>
+        </section>
+        <section className="stationary">Second section</section>
+        <section className="parallax bg-img-2"></section>
+        <section className="stationary">Third Section</section>
+        <section className="parallax bg-img-3"></section>
+      </main>
     </div>
   );
 }
-
-export default App;
