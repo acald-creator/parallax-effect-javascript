@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 export default function App() {
-  const [offset, setOffset] = useState(0)
+  const [setOffset] = useState(0)
   useEffect(() => {
     function handleScroll() {
       setOffset(window.pageYOffset)
